@@ -1,8 +1,11 @@
 <script lang='ts' setup>
 
+
 </script>
 <template>
-    <NativeDB></NativeDB>
+    <div class="Home">
+        <NativeDB></NativeDB>
+    </div>
 </template>
 <script lang='ts'>
 

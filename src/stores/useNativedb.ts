@@ -4,12 +4,15 @@ import axios from 'axios'
 export const useNativedb = defineStore('nativedb', {
     state: () => ({
         namespacesJson: {} as INatives,
+        loading: false,
     }),
     actions: {
-        async loadNativeInfo() {
-            return axios.get('/data/RER/natives.json').then(({ data }) => {
+        async getNamespaces(url: string) {
+            this.loading = true
+            return axios.get(url).then(({ data }) => {
                 this.namespacesJson = data
-                console.log(this.namespacesJson);
+                // console.log(this.namespacesJson);
+                this.loading = false
             })
         },
         // 生成 natives.h 文件

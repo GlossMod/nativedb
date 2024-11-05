@@ -4,12 +4,7 @@ import { ref, computed } from 'vue'
 
 import '@/assets/ndb.less'
 
-const loading = ref(true)
 const nativedb = useNativedb()
-
-nativedb.loadNativeInfo().then(() => {
-    loading.value = false
-})
 
 
 const nCount = computed(() => {
@@ -43,9 +38,8 @@ function expandAll() {
 </script>
 <template>
     <div>
-        <div id="title">Red Dead Redemption - Native DB</div>
         <br>
-        <div id="mainwindow">
+        <div id="mainwindow" v-loading="nativedb.loading">
             <div class="infobox" style="padding-left: 2em;">
                 <div class="btn-nohover">
                     Namespaces: {{ Object.keys(nativedb.namespacesJson).length }} |
@@ -60,10 +54,6 @@ function expandAll() {
                 </div>
             </div>
             <br />
-            <div id="loading" style="display:inline-block" v-if="loading">
-                <i class="fa fa-refresh fa-spin fa-2x fa-fw"></i>
-                <a style="font-size: 20px;">Loading</a>
-            </div>
             <ul id="nname">
                 <Namespace v-for="(ns, key) in nativedb.namespacesJson" :key="key" :ns="ns" :ns_name="key"
                     :show_na="showAll"></Namespace>
