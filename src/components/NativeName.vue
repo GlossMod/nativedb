@@ -104,7 +104,11 @@ li {
     .box-docs {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+
+        .box-btn {
+            text-align: right;
+        }
     }
 }
 </style>
