@@ -6,13 +6,17 @@ const usenativedb = useNativedb()
 
 let game_list = [
     {
+        name: "GTA V",
+        url: "https://raw.githubusercontent.com/GlossMod/nativedb/refs/heads/main/data/GTAV/natives.json"
+    },
+    {
+        name: "Red Dead Redemption 2",
+        url: "https://raw.githubusercontent.com/GlossMod/nativedb/refs/heads/main/data/RDR2/natives.json"
+    },
+    {
         name: "Red Dead Redemption",
         url: "https://raw.githubusercontent.com/GlossMod/nativedb/refs/heads/main/data/RER/natives.json"
     },
-    {
-        name: "GTA V",
-        url: "https://raw.githubusercontent.com/GlossMod/nativedb/refs/heads/main/data/GTAV/natives.json"
-    }
 ]
 
 const game = ref(game_list[0])
