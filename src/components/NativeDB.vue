@@ -28,18 +28,17 @@ const cCount = computed(() => {
     <v-card>
         <v-card-title>
             <div class="infobox">
-                <!-- <div class="btn-nohover"> -->
                 Namespaces: {{ Object.keys(nativedb.namespacesJson).length }} |
                 Natives: {{ nCount }} |
                 评论: {{ cCount }} |
                 已知: {{ kCount }} |
                 <el-button link @click="nativedb.generateNativesFile">生成 natives.h</el-button>
-                <!-- </div> -->
             </div>
         </v-card-title>
         <v-card-text>
             <el-collapse v-model="nativedb.expansion" multiple>
-                <Namespace v-for="(ns, key) in nativedb.namespacesJson" :key="key" :ns="ns" :ns_name="key" :name="key">
+                <Namespace v-for="(ns, key) in nativedb.getSearchResults" :key="key" :ns="ns" :ns_name="key"
+                    :name="key">
                 </Namespace>
             </el-collapse>
         </v-card-text>

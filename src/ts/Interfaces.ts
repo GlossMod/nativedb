@@ -1,5 +1,6 @@
 interface IParams {
-    [key: string]: string
+    type: string
+    name: string
 }
 
 interface INative {
@@ -8,6 +9,7 @@ interface INative {
     comment: string
     params: IParams[]
     unused?: any
+    variadic?: string
 }
 
 interface INatives {

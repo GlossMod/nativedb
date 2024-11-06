@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BaseHeaderActions: typeof import('./src/components/Bass/BaseHeaderActions.vue')['default']
     BassHeader: typeof import('./src/components/Bass/BassHeader.vue')['default']
     BassLeftMenu: typeof import('./src/components/Bass/BassLeftMenu.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']

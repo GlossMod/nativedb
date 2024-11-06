@@ -99,6 +99,10 @@ li {
         color: darkorange;
     }
 
+    .parameterName {
+        margin-right: 5px;
+    }
+
     .hash {
         color: lightgreen;
     }
