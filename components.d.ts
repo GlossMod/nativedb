@@ -8,7 +8,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BassHeader: typeof import('./src/components/Bass/BassHeader.vue')['default']
+    BassLeftMenu: typeof import('./src/components/Bass/BassLeftMenu.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
+    ElCollapse: typeof import('element-plus/es')['ElCollapse']
+    ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElFooter: typeof import('element-plus/es')['ElFooter']
     ElHeader: typeof import('element-plus/es')['ElHeader']

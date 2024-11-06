@@ -5,6 +5,7 @@ export const useNativedb = defineStore('nativedb', {
     state: () => ({
         namespacesJson: {} as INatives,
         loading: false,
+        expansion: [] as string[],
     }),
     actions: {
         async getNamespaces(url: string) {

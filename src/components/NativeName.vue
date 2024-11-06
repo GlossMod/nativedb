@@ -23,18 +23,20 @@ function copy(str: string) {
 
 </script>
 <template>
-    <li @click="show_funcbox = !show_funcbox" ref="liRef">
-        <a class="nativeName" :id="`func-${na_key}`"> •
-            <span class="datatype">{{ na.return_type }} </span> {{ na['name'] }}
-            (<template v-for="(params, index) in na.params">
-                <span class="datatype">{{ params.type }}</span>{{ " " }}
-                <span class="parameterName">{{ params.name }}{{ (index != (na.params.length - 1)) ? "," : '' }}
-                </span>
-            </template>)
-            <span class="hash">// {{ na_key }}</span>
-        </a>
-    </li>
-    <div v-if="show_funcbox" style="padding-left: 1%;">
+    <el-collapse-item>
+        <template #title>
+            <div class="" ref="liRef">
+                <div class="nativeName">
+                    <span class="datatype">{{ na.return_type }} </span> {{ na['name'] }}
+                    (<template v-for="(params, index) in na.params">
+                        <span class="datatype">{{ params.type }}</span>{{ " " }}
+                        <span class="parameterName">{{ params.name }}{{ (index != (na.params.length - 1)) ? "," : '' }}
+                        </span>
+                    </template>)
+                    <span class="hash">// {{ na_key }}</span>
+                </div>
+            </div>
+        </template>
         <div class="funcbox">
             <p style="font-weight: bold; font-size: 20px;">{{ ns_name }}::{{ na.name }}</p>
             <hr>
@@ -59,7 +61,7 @@ function copy(str: string) {
                 </div>
             </div>
         </div>
-    </div>
+    </el-collapse-item>
 </template>
 <script lang='ts'>
 
@@ -78,11 +80,20 @@ li {
 
 .nativeName {
     color: lightgray;
-    font-family: consolas, "courier new", courier, monospace;
     font-size: 14px;
-    text-indent: -50px;
-    padding-left: 50px;
     display: block;
+
+    // 超出后不换行，隐藏并显示...
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // 添加 li 前面的点
+    &::before {
+        content: "•";
+        color: lightgray;
+        margin-right: 5px;
+    }
 
     .datatype {
         color: darkorange;
@@ -96,7 +107,7 @@ li {
 .funcbox {
     display: block;
     margin: 5px 0;
-    width: 800px;
+    // width: 800px;
     padding: 5px 8px 5px 10px;
     border-radius: 4px;
     border: 3px darkorange solid;
@@ -109,6 +120,14 @@ li {
         .box-btn {
             text-align: right;
         }
+    }
+
+    .nativeName {
+        // 取消 超出后不换行，隐藏并显示...
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+
     }
 }
 </style>

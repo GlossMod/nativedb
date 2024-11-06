@@ -3,15 +3,20 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-    <div class="common-layout">
+    <v-layout>
+        <BassHeader></BassHeader>
+        <BassLeftMenu></BassLeftMenu>
+        <v-main style="min-height: 100vh;">
+            <RouterView />
+        </v-main>
+    </v-layout>
+    <!-- <div class="common-layout">
         <el-container>
-            <BassHeader></BassHeader>
             <el-main>
-                <RouterView />
             </el-main>
             <el-footer></el-footer>
         </el-container>
-    </div>
+    </div> -->
 </template>
 
 <style scoped></style>

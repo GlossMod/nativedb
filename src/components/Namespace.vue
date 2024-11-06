@@ -1,31 +1,31 @@
 <script lang='ts' setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
     ns: {
         [key: string]: INative;
     }
     ns_name: any
-    show_na: boolean
 }>()
 
-const show_na = ref(props.show_na)
 const count = computed(() => {
     return Object.keys(props.ns).length
 })
 
-watch(() => props.show_na, (newVal) => {
-    show_na.value = newVal
-})
+const collapse = ref([])
 
 </script>
 <template>
-    <li @click="show_na = !show_na">
-        <a class='namespace' :id='`ns-${ns_name}`'>{{ ns_name }}[{{ count }}]</a>
-    </li>
-    <ul v-if="show_na">
-        <NativeName v-for="(na, key) in ns" :key="key" :na="na" :ns="ns" :ns_name="ns_name" :na_key="key"></NativeName>
-    </ul>
+    <el-collapse-item :title="`${ns_name}[${count}]`">
+        <v-lazy :options="{ 'threshold': 0.5 }" transition="fade-transition">
+            <el-card>
+                <el-collapse v-model="collapse" multiple>
+                    <NativeName v-for="(na, key) in ns" :key="key" :na="na" :ns="ns" :ns_name="ns_name" :na_key="key">
+                    </NativeName>
+                </el-collapse>
+            </el-card>
+        </v-lazy>
+    </el-collapse-item>
 </template>
 <script lang='ts'>
 
