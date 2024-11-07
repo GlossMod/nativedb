@@ -15,7 +15,7 @@ const Main = {
 }
 
 const Games = {
-    "GTA V": "Grand Theft Auto V",
+    "GTAV": "Grand Theft Auto V",
     "RDR2": "Red Dead: Redemption 2",
     "RDR1": "Red Dead: Redemption",
 }

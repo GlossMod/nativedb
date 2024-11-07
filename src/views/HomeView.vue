@@ -2,11 +2,12 @@
 import { useRoute } from 'vue-router';
 import { watch } from 'vue';
 import { useNativedb } from '@/stores/useNativedb';
+import { useI18n } from 'vue-i18n';
 
 const route = useRoute()
 const usenativedb = useNativedb()
 
-// console.log(route);
+const { t } = useI18n()
 
 watch(() => route.params.game, () => {
     let game = ''
@@ -17,7 +18,7 @@ watch(() => route.params.game, () => {
 
     let url = `/data/${game}/natives.json`
     usenativedb.getNamespaces(url)
-    document.title = `${game} - Native DB`
+    document.title = t(game) + ` - Native DB`
 
 }, { immediate: true })
 

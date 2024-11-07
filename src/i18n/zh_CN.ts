@@ -14,7 +14,7 @@ const Main = {
 }
 
 const Games = {
-    "GTA V": "侠盗猎车手 V",
+    "GTAV": "侠盗猎车手 V",
     "RDR2": "荒野大镖客：救赎 2",
     "RDR1": "荒野大镖客：救赎",
 }
