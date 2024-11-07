@@ -84,7 +84,9 @@ export const useNativedb = defineStore('nativedb', {
                         let commentStr = nativeObj.comment;
                         let lines = commentStr.split(/\r?\n/);
                         for (let i = 0; i < lines.length; i++) {
-                            resultString += "\t/** " + lines[i] + " */" + endl;
+                            if (lines[i] != '') {
+                                resultString += "\t/** " + lines[i] + " */" + endl;
+                            }
                         }
                     }
 
