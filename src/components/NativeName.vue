@@ -1,6 +1,7 @@
 <script lang='ts' setup>
 import { ElMessage } from 'element-plus';
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 
 const props = defineProps<{
@@ -12,13 +13,15 @@ const props = defineProps<{
     ns_name: string
 }>()
 
+const { t } = useI18n()
+
 const liRef = ref<HTMLDivElement>()
 
 const show_funcbox = ref(false)
 
 function copy(str: string) {
     navigator.clipboard.writeText(str)
-    ElMessage.success("复制成功~")
+    ElMessage.success(t("Copyed~"))
 }
 
 </script>
@@ -33,7 +36,7 @@ function copy(str: string) {
                         <span class="parameterName">{{ params.name }}{{ (index != (na.params.length - 1)) ? "," : '' }}
                         </span>
                     </template>)
-                    <span class="hash">// {{ na_key }}</span>
+                    <span class="hash">{{ `// ${na_key} ${na.jhash || ''} ${na.build ? `b${na.build}` : ''}` }}</span>
                 </div>
             </div>
         </template>
@@ -46,18 +49,18 @@ function copy(str: string) {
                 <div class="box-comment">
                     <p style="white-space: pre-wrap; display: inline;">
                         <br>
-                        <span v-if="na.unused"> native 未使用脚本.</span>
+                        <span v-if="na.unused"> {{ $t("This native is not used in the scripts") }}</span>
                         <span v-if="na.comment != ''">
                             <template v-if="na.unused"><br><br></template>
                             {{ na.comment }}
                         </span>
-                        <span v-else-if="!na.unused"><i>暂无评论</i></span>
+                        <span v-else-if="!na.unused"><i>{{ $t("No comment available") }}</i></span>
                         <br><br>
                     </p>
                 </div>
                 <div class="box-btn">
-                    <el-button @click="copy(`${ns_name}::${na.name}`)">复制名称</el-button>
-                    <el-button @click="copy(na_key)">复制Hash</el-button>
+                    <el-button @click="copy(`${ns_name}::${na.name}`)">{{ $t("Copy Name") }}</el-button>
+                    <el-button @click="copy(na_key)">{{ $t("Copy Hash") }}</el-button>
                 </div>
             </div>
         </div>

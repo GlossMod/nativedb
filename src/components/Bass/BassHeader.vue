@@ -18,7 +18,7 @@ function search() {
         <v-app-bar-nav-icon variant="text" @click.stop="usemain.leftMenu = !usemain.leftMenu"></v-app-bar-nav-icon>
         <v-row class="title-bar">
             <v-col cols="12" md="6">
-                <h1 class="title">{{ route.params.game || "GTA V" }} - Native DB</h1>
+                <h1 class="title">{{ $t((route.params.game as string) || "GTA V") }} - Native DB</h1>
             </v-col>
             <v-col class="d-none d-md-block">
                 <BaseHeaderActions></BaseHeaderActions>

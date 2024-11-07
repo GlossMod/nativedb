@@ -15,6 +15,7 @@ declare module 'vue' {
     ElCollapse: typeof import('element-plus/es')['ElCollapse']
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    Language: typeof import('./src/components/Bass/Language.vue')['default']
     Namespace: typeof import('./src/components/Namespace.vue')['default']
     NativeDB: typeof import('./src/components/NativeDB.vue')['default']
     NativeName: typeof import('./src/components/NativeName.vue')['default']

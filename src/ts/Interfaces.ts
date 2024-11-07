@@ -10,6 +10,8 @@ interface INative {
     params: IParams[]
     unused?: any
     variadic?: string
+    jhash?: string
+    build?: string
 }
 
 interface INatives {

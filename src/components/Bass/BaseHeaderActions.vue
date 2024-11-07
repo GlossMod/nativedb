@@ -11,8 +11,9 @@ function expandAll() {
 </script>
 <template>
     <div class="box-btn">
-        <el-button link type="primary" @click="collapseAll">全部折叠</el-button>
-        <el-button link type="primary" @click="expandAll">全部展开</el-button>
+        <Language></Language>
+        <el-button link type="primary" @click="collapseAll">{{ $t("Collapse All") }}</el-button>
+        <el-button link type="primary" @click="expandAll">{{ $t("Expand All") }}</el-button>
         <a href="https://github.com/GlossMod/nativedb" target="_blank">
             <el-button link>
                 <el-icon :size="24">

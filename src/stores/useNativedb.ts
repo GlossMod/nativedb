@@ -14,8 +14,8 @@ export const useNativedb = defineStore('nativedb', {
     }),
     getters: {
         getSearchResults(store): INatives {
+            // 搜素结果
             const results: INatives = {};
-
             if (store.searchText == '') {
                 return store.namespacesJson
             }
@@ -32,7 +32,9 @@ export const useNativedb = defineStore('nativedb', {
 
                     if (nativeKey.toLowerCase().includes(lowerKeyword) ||
                         nativeObj.name.toLowerCase().includes(lowerKeyword) ||
-                        nativeObj.comment.toLowerCase().includes(lowerKeyword)) {
+                        nativeObj.comment.toLowerCase().includes(lowerKeyword) ||
+                        nativeObj.jhash?.toLowerCase().includes(lowerKeyword)
+                    ) {
                         if (!results[namespace]) {
                             results[namespace] = {};
                         }
@@ -102,13 +104,14 @@ export const useNativedb = defineStore('nativedb', {
                     paramsObj.forEach((paramObj, index) => {
                         resultString += paramObj.name + (index != paramsObj.length - 1 ? ", " : "");
                     })
-                    resultString += "); }" + " // " + native + (nativeObj.unused ? " unused" : "") + endl;
+                    resultString += "); }" + " // " + native + (nativeObj.unused ? " unused" : "") + ` ${nativeObj.jhash || ''} ${nativeObj.build ? `b${nativeObj.build}` : ''}` + endl;
                 }
                 resultString += "}" + endl + endl;
             }
             this.download("natives.h", resultString);
 
         },
+        // 下载文件
         download(filename: string, text: string) {
             var element = document.createElement('a');
             element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));

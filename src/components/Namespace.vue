@@ -29,8 +29,8 @@ function expandAll() {
             <el-card>
                 <template #header>
                     <div class="button">
-                        <el-button link type="primary" @click="collapseAll">全部折叠</el-button>
-                        <el-button link type="primary" @click="expandAll">全部展开</el-button>
+                        <el-button link type="primary" @click="collapseAll">{{ $t("Collapse All") }}</el-button>
+                        <el-button link type="primary" @click="expandAll">{{ $t("Expand All") }}</el-button>
                     </div>
                 </template>
                 <el-collapse v-model="collapse" multiple>

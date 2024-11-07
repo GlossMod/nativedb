@@ -28,11 +28,11 @@ const cCount = computed(() => {
     <v-card>
         <v-card-title>
             <div class="infobox">
-                Namespaces: {{ Object.keys(nativedb.namespacesJson).length }} |
-                Natives: {{ nCount }} |
-                评论: {{ cCount }} |
-                已知: {{ kCount }} |
-                <el-button link @click="nativedb.generateNativesFile">生成 natives.h</el-button>
+                {{ $t("Namespaces") }}: {{ Object.keys(nativedb.namespacesJson).length }} |
+                {{ $t("Natives") }}: {{ nCount }} |
+                {{ $t("Comments") }}: {{ cCount }} |
+                {{ $t("Known names") }}: {{ kCount }} |
+                <el-button link @click="nativedb.generateNativesFile">{{ $t("Generate natives.h") }}</el-button>
             </div>
         </v-card-title>
         <v-card-text>
