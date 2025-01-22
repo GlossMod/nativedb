@@ -37,7 +37,7 @@ Native DB 地址: https://nativedb.aoe.top
 
 - [Issues](https://github.com/GlossMod/nativedb/issues)
 - [Discord](https://discord.gg/TF46tu7Upw)
-- [QQ](https://wj.qq.com/s2/14010887/92e3/)
+- [QQ频道](https://pd.qq.com/s/hco46ol54)
 
 
 
