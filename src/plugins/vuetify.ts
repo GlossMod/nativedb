@@ -10,6 +10,6 @@ export const vuetify = createVuetify({
     directives,
     // // 暗色模式
     theme: {
-        defaultTheme: window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light',
+        defaultTheme: "dark"
     }
 })
