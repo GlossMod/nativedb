@@ -105,7 +105,9 @@ onMounted(loadFriendLinks);
     font-size: 12px;
     line-height: 1.4;
     text-decoration: none;
-    transition: color 0.2s ease, opacity 0.2s ease;
+    transition:
+        color 0.2s ease,
+        opacity 0.2s ease;
 }
 
 .native-friendly-footer__link:hover {
